@@ -20,8 +20,6 @@ sub main
 	}else{
 		print "See (non-existant 7/2/14) man page";
 	}
-
-
 }
 
 sub sleep_timer
@@ -43,10 +41,7 @@ sub sleep_alarm
 	my ($p1, $p2) = @_;
 	my @time = split(/:/, $p1);
         
-	my $hrs = $time[0];
-	my $min = $time[1];
-
-	my $alarm_time = join(':',$hrs,$min);
+	my $alarm_time = join(':',$time[0],$time[1]);
 
 	my $p = Proc::Simple->new();
 	$p->start($p2);
