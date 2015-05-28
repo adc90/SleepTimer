@@ -1,9 +1,7 @@
 #!/usr/bin/perl
 
-=pod
-Author: Aaron Clevenger
-Desc: Simple sleep timer for linux using perl.
-=cut
+# Author: Aaron Clevenger
+# Desc: Simple sleep timer for linux using perl.
 
 use strict;
 use warnings;
@@ -13,13 +11,18 @@ sub main
 {
 	$| = 1; #Flush the STD input
 
-	if($ARGV[0] eq "-a"){
-		sleep_alarm($ARGV[1],$ARGV[2]);
-	}elsif($ARGV[0] eq "-t"){
-		sleep_timer($ARGV[1],$ARGV[2]);	
-	}else{
-		print "See (non-existant 7/2/14) man page";
-	}
+        if(!defined $ARGV[0]){
+            print "./SleepTimer.sh -[a|t] hh:mm <cmd>";
+        }else{
+            if($ARGV[0] eq "-a") {
+                    sleep_alarm($ARGV[1],$ARGV[2]);
+            }elsif($ARGV[0] eq "-t"){
+                    sleep_timer($ARGV[1],$ARGV[2]);	
+            }else{
+                    print "See (non-existant 7/2/14) man page";
+            }
+        }
+
 }
 
 sub sleep_timer
